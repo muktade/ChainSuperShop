@@ -1,0 +1,35 @@
+table {
+    width: 100%;
+  }
+  
+  th {
+    width: auto;
+  }
+
+  th{
+    font-size: 16px;
+    background-color: rgb(236, 238, 241);
+  }
+
+.mat-raised-button{
+  margin-right: 5px;
+}
+
+.fa{
+  margin-right: 5px;
+}
+.btn {
+    margin-right: 20px;
+}
+.btn-primary{
+    width: 200px;
+    height: 37px;
+}
+.row mat-form-field {
+    margin-right: 20px;
+    margin-left: 15px;
+    width: 40%;
+}
+mat-expansion-panel{
+    background-color: rgb(240, 246, 250);
+}

@@ -1,0 +1,44 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Sale Report As per Date</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>From Date</mat-label>
+                    
+                    <input matInput placeholder="Write From Date" type="text"
+                    [(ngModel)]="fromdate">
+                    </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>To Date</mat-label>
+                    
+                    <input matInput placeholder="Write To Date" type="text"
+                    [(ngModel)]="todate">
+                    </mat-form-field>
+            </div>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <button class="btn btn-success" (click)="generateAllpurchaseReport()"> <i class="fa fa-save"></i> Generate Report</button>
+                    <button class="btn btn-primary" (click)="clear()"><i class="fa fa-retweet"></i> Clear</button>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Generated pdf Report</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <pdf-viewer [src]="src" [render-text]="true" style="display: block;"> </pdf-viewer>
+    </mat-card-content>
+    <mat-card-actions>
+        <a [href]="src"><button class="btn btn-primary" style="width: 200px;"> Download the PDF </button></a>
+    </mat-card-actions>
+</mat-card>

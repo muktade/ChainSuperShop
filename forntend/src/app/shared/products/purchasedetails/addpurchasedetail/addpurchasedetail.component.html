@@ -1,0 +1,78 @@
+<mat-expansion-panel [expanded]="purchasedetailService.panelOpenState">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2 style="padding-top: 15px;">Edit Purchase Details</h2>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Purchase Detail ID</mat-label>
+                    <input matInput placeholder="Purchase Detail ID" type="text"
+                        [(ngModel)]="purchasedetailService.currentPurchasedetail.purdetid" disabled>
+                </mat-form-field>
+            </div> 
+            <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Purchase Id</mat-label>
+                    <input matInput placeholder="Purchase Detail ID" type="text"
+                        [(ngModel)]="purchasedetailService.currentPurchasedetail.purid" disabled>
+                    <!-- <mat-select [(ngModel)]="purchasedetailService.currentPurchasedetail.purid">
+                        <mat-option *ngFor="let allpur of allPurchase" [(value)]="allpur.purid">
+                            Id: {{allpur.purid}} Date: {{allpur.purdate}}
+                        </mat-option>
+                    </mat-select> -->
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Purchase Date</mat-label>
+                    <input matInput placeholder="Write Purchase Date" type="text"
+                        [(ngModel)]="purchasedetailService.currentPurchasedetail.purdate" disabled>
+                    <!-- <input matInput [matDatepicker]="picker"
+                        [(ngModel)]="purchasedetailService.currentPurchasedetail.purdate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker> -->
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Purchase Price PU</mat-label>
+                    <input matInput placeholder="Write Purchase Price Per Unit" type="text"
+                        [(ngModel)]="purchasedetailService.currentPurchasedetail.ppricepu" disabled>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-label>Product Name</mat-label>
+                    <mat-select [(ngModel)]="purchasedetailService.currentPurchasedetail.pid">
+                        <mat-option *ngFor="let allpro of allProduct" [(value)]="allpro.pid">
+                            {{allpro.pname}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Purchase Quantity</mat-label>
+                    <input matInput placeholder="Write total Purchase Quantity"
+                        [(ngModel)]="purchasedetailService.currentPurchasedetail.purqty">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Subtotal</mat-label>
+                    <input matInput placeholder="Write Sub total"
+                        [(ngModel)]="purchasedetailService.currentPurchasedetail.subtotal">
+                </mat-form-field>
+            </div>
+            
+            
+        </div>
+    <button class="btn btn-success" (click)="createOrUpdatePurchasedetail(purchasedetailService.currentPurchasedetail)">
+        <i class="fa fa-save"></i>
+        Update</button>
+    <button class="btn btn-primary" (click)="clear()"> <i class="fa fa-retweet"></i> Clear</button>
+</mat-expansion-panel>

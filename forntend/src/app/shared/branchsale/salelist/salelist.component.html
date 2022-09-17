@@ -1,0 +1,71 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Branchsale Detail List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Write anything">
+      </mat-form-field>
+      <div>
+        <table mat-table [dataSource]="dataSource">
+          <!-- ID Column -->
+          <ng-container matColumnDef="Branchsale ID">
+            <th mat-header-cell *matHeaderCellDef> Branchsale ID </th>
+            <td mat-cell *matCellDef="let bsale"> {{bsale[0].bsaleid}} </td>
+          </ng-container>
+  
+          <!-- Name Column -->
+          <ng-container matColumnDef="Branch ID">
+            <th mat-header-cell *matHeaderCellDef> Branch ID </th>
+            <td mat-cell *matCellDef="let bsale"> {{bsale[0].branchid}} </td>
+          </ng-container>
+  
+          <!-- Description Column -->
+          <ng-container matColumnDef="Branch Location">
+            <th mat-header-cell *matHeaderCellDef> Branch Location </th>
+            <td mat-cell *matCellDef="let bsale"> {{bsale[1].blocation}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Sale Date">
+            <th mat-header-cell *matHeaderCellDef> Sale Date </th>
+            <td mat-cell *matCellDef="let bsale"> {{bsale[0].saledate}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Sale Amount">
+            <th mat-header-cell *matHeaderCellDef> Sale Amount </th>
+            <td mat-cell *matCellDef="let bsale"> {{bsale[0].totalamount}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Staff Email">
+            <th mat-header-cell *matHeaderCellDef> Staff Email </th>
+            <td mat-cell *matCellDef="let bsale"> {{bsale[2].semail}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let bsale"> {{bsale[0].status}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let bsale">
+
+              <button mat-raised-button [matMenuTriggerFor]="menu" >Actions</button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="editBranchsale(bsale[0])"><i class="fa fa-edit"></i> Edit</button>
+              <button mat-menu-item (click)="deleteBranchsale(bsale[0])"><i class="fa fa-trash"></i> Delete</button>
+            </mat-menu>
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let bsale; columns: displayedColumns;">
+          </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+

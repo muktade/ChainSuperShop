@@ -1,0 +1,77 @@
+<mat-expansion-panel [expanded]="productService.panelOpenState">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <h2 style="padding-top: 15px;">Add New Product</h2>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Product ID</mat-label>
+            <input matInput placeholder="Product id" type="text" [(ngModel)]="productService.currentProduct.pid" disabled>
+          </mat-form-field>
+        </div>
+        <div class="col-md-8">
+            <mat-form-field>
+                <mat-label>Product Category</mat-label>
+                <mat-select [(ngModel)]="productService.currentProduct.catid" >
+                  <mat-option *ngFor="let allcat of allCategory" [(value)]="allcat.catid" >
+                    {{allcat.catname}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Product Name</mat-label>
+            <input matInput placeholder="Write a Product name" type="text" [(ngModel)]="productService.currentProduct.pname">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Product Description</mat-label>
+            <input matInput placeholder="Write a Product Description" type="text" [(ngModel)]="productService.currentProduct.pdesc">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Product Picture Name</mat-label>
+            <input matInput placeholder="Write a Product Picture Name" type="text" [(ngModel)]="productService.currentProduct.pimgname">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Manufacturer Name</mat-label>
+            <input matInput placeholder="Write a Manufacturer Name" type="text" [(ngModel)]="productService.currentProduct.manufacturer">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Supplier Name</mat-label>
+              <input matInput placeholder="Write a Supplier Name" type="text" [(ngModel)]="productService.currentProduct.supplier">
+            </mat-form-field>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Product Reorder Quantity</mat-label>
+              <input matInput placeholder="Write Product Reorder Quantity" type="text" [(ngModel)]="productService.currentProduct.reorderqty">
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Product Supply Quantity</mat-label>
+              <input matInput placeholder="Write Product Supply Quantity" type="text" [(ngModel)]="productService.currentProduct.supplyqty">
+            </mat-form-field>
+          </div>
+      </div>
+      
+    <button class="btn btn-success" (click)="createOrUpdateProduct()"> <i class="fa fa-save"></i>
+      Save</button>
+    <button class="btn btn-primary" (click)="clear()"> <i class="fa fa-retweet"></i> Clear</button>
+</mat-expansion-panel>

@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>All Sale Report</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-5">
+                <button class="btn btn-success" (click)="generateAllpurchaseReport()"> <i
+                    class="fa fa-save"></i> Generate Report</button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Generated pdf Report</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <pdf-viewer [src]="src" [render-text]="true" style="display: block;"> </pdf-viewer>
+    </mat-card-content>
+    <mat-card-actions>
+      <a [href]="src"><button class="btn btn-primary" style="width: 200px;"> Download the PDF  </button></a>
+    </mat-card-actions>
+  </mat-card>
+ 

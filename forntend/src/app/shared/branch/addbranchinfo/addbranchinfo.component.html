@@ -1,0 +1,46 @@
+<mat-expansion-panel [expanded]="branchinfoService.panelOpenState">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2 style="padding-top: 15px;">Add New Branch</h2>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Branch ID</mat-label>
+          <input matInput placeholder="Branch ID" type="text" [(ngModel)]="branchinfoService.currentBranchinfo.branchid" disabled>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Branch Location</mat-label>
+          <input matInput placeholder="Write Branch Location" type="text" [(ngModel)]="branchinfoService.currentBranchinfo.blocation">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Branch Contact</mat-label>
+          <input matInput placeholder="Write Branch Contact no." type="text" [(ngModel)]="branchinfoService.currentBranchinfo.bcontact">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Branch Email</mat-label>
+            <input matInput placeholder="Write Branch Email" type="text" [(ngModel)]="branchinfoService.currentBranchinfo.bemail">
+          </mat-form-field>
+        </div>
+        <div class="col-md-8">
+          <mat-form-field appearance="outline">
+            <mat-label>Branch Description</mat-label>
+            <input matInput placeholder="Write Branch Description" type="text" [(ngModel)]="branchinfoService.currentBranchinfo.bdesc">
+          </mat-form-field>
+        </div>
+      </div>
+    
+  <button class="btn btn-success" (click)="createOrUpdateBranchinfo(branchinfoService.currentBranchinfo)" onclick="toastr.warning('Hi! I am warning message.');"> <i class="fa fa-save"></i>
+    Save</button>
+  <button class="btn btn-primary" (click)="clear();"> <i class="fa fa-retweet"></i> Clear</button>
+    
+  </mat-expansion-panel>

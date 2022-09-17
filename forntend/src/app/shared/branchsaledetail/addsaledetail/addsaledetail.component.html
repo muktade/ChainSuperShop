@@ -1,0 +1,66 @@
+<mat-expansion-panel [expanded]="branchsaledetailservice.panelOpenState">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h2 style="padding-top: 15px;">Edit Branchsaledetail </h2>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row">
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Branchsale Detail ID</mat-label>
+                <input matInput placeholder="Branchsale Detail ID" type="text"
+                    [(ngModel)]="branchsaledetailservice.currentBranchsaledetail.bsaledetid" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Branch Sale Id</mat-label>
+                <!-- <mat-select [(ngModel)]="branchsaledetailservice.currentBranchsaledetail.bsaleid">
+                    <mat-option *ngFor="let branchsale of allbranchsale" [(value)]="branchsale.bsaleid">
+                        Id: {{branchsale.bsaleid}} Branch ID: {{branchsale.branchid}} Sale Date: {{branchsale.saledate}}
+                    </mat-option>
+                </mat-select> -->
+                <input matInput placeholder="Branchsale Detail ID" type="text"
+                    [(ngModel)]="branchsaledetailservice.currentBranchsaledetail.bsaleid" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field>
+                <mat-label>Product ID</mat-label>
+                <input matInput placeholder="Write Product ID" type="text"
+                    [(ngModel)]="branchsaledetailservice.currentBranchsaledetail.pid" disabled>
+            </mat-form-field>
+        </div>
+
+    </div>
+    <div class="row">
+        
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Sale Quantity</mat-label>
+                <input matInput placeholder="Write Branch Sale Amount" type="text"
+                    [(ngModel)]="branchsaledetailservice.currentBranchsaledetail.saleqty">
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Sale Rate</mat-label>
+                <input matInput placeholder="Write Branch Sale rate" type="text"
+                    [(ngModel)]="branchsaledetailservice.currentBranchsaledetail.salerate" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Subtotal</mat-label>
+                <input matInput placeholder="Write Branch Sale rate" type="text"
+                    [(ngModel)]="branchsaledetailservice.currentBranchsaledetail.subtotal">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <button class="btn btn-success" (click)="createOrUpdateBranchsaledetail(branchsaledetailservice.currentBranchsaledetail)"> <i
+            class="fa fa-save"></i>
+        Update</button>
+    <button class="btn btn-primary" (click)="clear();"> <i class="fa fa-retweet"></i> Clear</button>
+
+</mat-expansion-panel>

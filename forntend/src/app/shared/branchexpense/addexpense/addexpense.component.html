@@ -1,0 +1,56 @@
+<mat-expansion-panel [expanded]="branchexpservice.panelOpenState">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h2 style="padding-top: 15px;">Add Branch Expenses</h2>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row">
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Branch Expense ID</mat-label>
+                <input matInput placeholder="Branch Expense ID" type="text"
+                    [(ngModel)]="branchexpservice.currentBexpense.bexpid" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-8">
+            <mat-form-field>
+                <mat-label>Branch ID</mat-label>
+                <mat-select [(ngModel)]="branchexpservice.currentBexpense.branchid">
+                    <mat-option *ngFor="let allb of allbranch" [(value)]="allb.branchid">
+                        ID: {{allb.branchid}} Location: {{allb.blocation}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field appearance="outline">
+                <mat-label>Expense Description</mat-label>
+                <input matInput placeholder="Write Expense Description" type="text"
+                    [(ngModel)]="branchexpservice.currentBexpense.expdesc">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Expense Amount</mat-label>
+                <input matInput placeholder="Write Expense Amount" type="text"
+                    [(ngModel)]="branchexpservice.currentBexpense.expamount">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>Expense Date</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="branchexpservice.currentBexpense.expdate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <button class="btn btn-success" (click)="createOrUpdateBranchexpense(branchexpservice.currentBexpense)"> <i class="fa fa-save"></i>
+        Save</button>
+    <button class="btn btn-primary" (click)="clear()"> <i class="fa fa-retweet"></i> Clear</button>
+</mat-expansion-panel>

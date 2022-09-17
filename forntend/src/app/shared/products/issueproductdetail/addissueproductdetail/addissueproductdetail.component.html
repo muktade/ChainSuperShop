@@ -1,0 +1,69 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Issue Product Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Issueproduct Detail ID</mat-label>
+                    <input matInput placeholder="Issueproduct Detail ID" type="text"
+                        [(ngModel)]="issueproductdetailService.currentIssueproductdetail.issuedetid" disabled>
+                </mat-form-field>
+            </div>
+            <div class="col-md-5">
+                <mat-form-field>
+                    <mat-label>Issueproduct Id With Date</mat-label>
+                    <mat-select [(ngModel)]="issueproductdetailService.currentIssueproductdetail.issueid">
+                        <mat-option *ngFor="let allIssue of allIssueproduct" [(value)]="allIssue.issueid">
+                            ID: {{allIssue.issueid}} Date: {{allIssue.issuedate}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-label>Branch Id With Location</mat-label>
+                    <mat-select [(ngModel)]="issueproductdetailService.currentIssueproductdetail.branchid">
+                        <mat-option *ngFor="let allbr of allBranch" [(value)]="allbr.branchid">
+                            Id: {{allbr.branchid}} Location: {{allbr.blocation}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <mat-form-field>
+                    <mat-label>Product Name</mat-label>
+                    <mat-select [(ngModel)]="issueproductdetailService.currentIssueproductdetail.pid">
+                        <mat-option *ngFor="let allcstock of allCentralstock" [(value)]="allcstock[0].pid">
+                            Name: {{allcstock[1].pname}} StockQuantity:{{allcstock[0].stockqty}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Issue Quantity</mat-label>
+                    <input matInput placeholder="Write total Issue Quantity"
+                        [(ngModel)]="issueproductdetailService.currentIssueproductdetail.issueqty">
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Sale Price Rate</mat-label>
+                    <input matInput placeholder="Write Purchase Price Per Unit" type="text"
+                        [(ngModel)]="issueproductdetailService.currentIssueproductdetail.spricerate">
+                </mat-form-field>
+            </div>
+        </div>
+
+    </mat-card-content>
+    <button class="btn btn-success" (click)="createOrUpdateIssueproductdetail(issueproductdetailService.currentIssueproductdetail)">
+        <i class="fa fa-save"></i>
+        Save</button>
+    <button class="btn btn-primary" (click)="clear()"> <i class="fa fa-retweet"></i> Clear</button>
+</mat-card>

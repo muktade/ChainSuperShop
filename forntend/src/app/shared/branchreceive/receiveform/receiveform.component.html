@@ -1,0 +1,47 @@
+<mat-expansion-panel [expanded]="receiveproductService.panelOpenState">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h2 style="padding-top: 15px;">Add Received Product</h2>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Receive ID</mat-label>
+                <input matInput placeholder="Receive ID"
+                    [(ngModel)]="receiveproductService.currentReceivedproduct.recid" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Issue ID</mat-label>
+                <input matInput placeholder="Issue ID" [(ngModel)]="issueproductdetailService.currentIssueproductdetail.issueid" disabled>
+            </mat-form-field>
+        </div>
+        
+    </div>
+    <div class="row">
+
+        <div class="col-md-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Branch ID</mat-label>
+                <input matInput placeholder="Branch ID"
+                    [(ngModel)]="issueproductdetailService.currentIssueproductdetail.branchid" disabled>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>Received Date</mat-label>
+                        <input matInput [matDatepicker]="picker"
+                            [(ngModel)]="receiveproductService.currentReceivedproduct.recdate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    <button class="btn btn-success" (click)="createReceivedproductandupdateIssueproduct(receiveproductService.currentReceivedproduct, issueproductdetailService.currentIssueproductdetail)"> <i class="fa fa-save"></i>
+        Save</button>
+    <button class="btn btn-primary" (click)="clear()"> <i class="fa fa-retweet"></i> Clear</button>
+
+</mat-expansion-panel>

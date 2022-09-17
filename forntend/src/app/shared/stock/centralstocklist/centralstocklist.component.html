@@ -1,0 +1,53 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Central Stock List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Write anything">
+      </mat-form-field>
+      <div>
+        <table mat-table [dataSource]="dataSource">
+          <!-- ID Column -->
+          <ng-container matColumnDef="Stock ID">
+            <th mat-header-cell *matHeaderCellDef> Stock ID </th>
+            <td mat-cell *matCellDef="let cstock"> {{cstock[0].mstockid}} </td>
+          </ng-container>
+  
+          <!-- Name Column -->
+          <ng-container matColumnDef="Product Name">
+            <th mat-header-cell *matHeaderCellDef> Product Name </th>
+            <td mat-cell *matCellDef="let cstock"> {{cstock[1].pname}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Category Name">
+            <th mat-header-cell *matHeaderCellDef> Category Name </th>
+            <td mat-cell *matCellDef="let cstock"> {{cstock[2].catname}} </td>
+          </ng-container>
+  
+          <!-- Description Column -->
+          <ng-container matColumnDef="Stock Quantity">
+            <th mat-header-cell *matHeaderCellDef> Stock Quantity </th>
+            <td mat-cell *matCellDef="let cstock"> {{cstock[0].stockqty}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let cstock">
+                <button mat-raised-button [matMenuTriggerFor]="menu" >Actions</button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item ><i class="fa fa-edit"></i> Edit</button>
+                  <button mat-menu-item ><i class="fa fa-trash"></i> Delete</button>
+                </mat-menu>
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let cat; columns: displayedColumns;">
+          </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>

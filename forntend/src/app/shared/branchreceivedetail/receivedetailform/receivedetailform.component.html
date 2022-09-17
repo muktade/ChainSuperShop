@@ -1,0 +1,77 @@
+<mat-expansion-panel [expanded]="receiveproductdetailService.panelOpenState">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h2 style="padding-top: 15px;">Add Received Details Product</h2>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row">
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Receive Detail ID</mat-label>
+                <input matInput placeholder="Receive Detail ID"
+                    [(ngModel)]="receiveproductdetailService.currentReceivedproductdetail.recdetid" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Receive ID</mat-label>
+                <input matInput placeholder="Category id"
+                    [(ngModel)]="receiveproductService.currentReceivedproduct.recid" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Issue ID</mat-label>
+                <input matInput placeholder="Issue ID" [(ngModel)]="receiveproductService.currentReceivedproduct.issueid" disabled>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Issue Detail ID</mat-label>
+                <input matInput placeholder="Issue Detail ID" [(ngModel)]="issuedetailService.currentIssueproductdetail.issuedetid" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Branch ID</mat-label>
+                <input matInput placeholder="Branch ID" type="text"
+                    [(ngModel)]="receiveproductService.currentReceivedproduct.branchid" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Receive Date</mat-label>
+                <input matInput placeholder="Receive Date" type="text"
+                    [(ngModel)]="receiveproductService.currentReceivedproduct.recdate" disabled>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Product ID</mat-label>
+                <input matInput placeholder="Product ID" [(ngModel)]="issuedetailService.currentIssueproductdetail.pid" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Product Quantity</mat-label>
+                <input matInput placeholder="Product Quantity" type="text"
+                    [(ngModel)]="issuedetailService.currentIssueproductdetail.issueqty" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Sale Price Rate</mat-label>
+                <input matInput placeholder="Sale Price Rate" type="text"
+                    [(ngModel)]="issuedetailService.currentIssueproductdetail.spricerate" disabled>
+            </mat-form-field>
+        </div>
+    </div>
+    <button class="btn btn-success" (click)="createReceivedetailandupdateReceiveproduct(receiveproductdetailService.currentReceivedproductdetail, receiveproductService.currentReceivedproduct, issuedetailService.currentIssueproductdetail)"> <i class="fa fa-save"></i>
+        Save</button>
+    <button class="btn btn-primary" (click)="clear()"> <i class="fa fa-retweet"></i> Clear</button>
+
+</mat-expansion-panel>

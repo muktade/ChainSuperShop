@@ -1,0 +1,40 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Sale Report As per ID</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Sale ID</mat-label>
+                    <mat-select [(ngModel)]="saleid">
+                        <mat-option *ngFor="let branchsale of allbranchsale" [(value)]="branchsale.bsaleid">
+                            Id: {{branchsale.bsaleid}} Branch ID: {{branchsale.branchid}} Sale Date: {{branchsale.saledate}}
+                        </mat-option>
+                    </mat-select>
+                    <!-- <input matInput placeholder="Write Sale ID" type="text"
+                    [(ngModel)]="saleid"> -->
+                    </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                
+                    <button class="btn btn-success" (click)="generateAllpurchaseReport()"> <i class="fa fa-save"></i> Generate Report</button>
+                    <button class="btn btn-primary" (click)="clear()"><i class="fa fa-retweet"></i> Clear</button>
+                
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Generated pdf Report</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <pdf-viewer [src]="src" [render-text]="true" style="display: block;"> </pdf-viewer>
+    </mat-card-content>
+    <mat-card-actions>
+        <a [href]="src"><button class="btn btn-primary" style="width: 200px;"> Download the PDF </button></a>
+    </mat-card-actions>
+</mat-card>
+

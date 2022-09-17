@@ -1,0 +1,83 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Branch Receive Product List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-8">
+        <mat-form-field>
+          <mat-label>Branch ID</mat-label>
+          <input matInput placeholder="Write Branch ID" [(ngModel)]="branchreceiveService.branchid"
+          (focus)="getAllReceivedproductwithissuedetail()">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field>
+          <mat-label>Search</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Write anything">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <table mat-table [dataSource]="dataSource">
+        <!-- ID Column -->
+        <ng-container matColumnDef="Received ID">
+          <th mat-header-cell *matHeaderCellDef> Received ID </th>
+          <td mat-cell *matCellDef="let receiveinfo"> {{receiveinfo[0].recid}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Branch ID">
+          <th mat-header-cell *matHeaderCellDef> Branch ID </th>
+          <td mat-cell *matCellDef="let receiveinfo"> {{receiveinfo[0].branchid}} </td>
+        </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="Branch Location">
+          <th mat-header-cell *matHeaderCellDef> Branch Location </th>
+          <td mat-cell *matCellDef="let receiveinfo"> {{receiveinfo[3].blocation}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Issue ID">
+          <th mat-header-cell *matHeaderCellDef> Issue ID </th>
+          <td mat-cell *matCellDef="let receiveinfo"> {{receiveinfo[0].issueid}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Issue Detail ID">
+          <th mat-header-cell *matHeaderCellDef> Issue Detail ID </th>
+          <td mat-cell *matCellDef="let receiveinfo"> {{receiveinfo[2].issuedetid}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Issue Date">
+          <th mat-header-cell *matHeaderCellDef> Issue Date</th>
+          <td mat-cell *matCellDef="let receiveinfo"> {{receiveinfo[1].issuedate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Received Date">
+          <th mat-header-cell *matHeaderCellDef> Received Date</th>
+          <td mat-cell *matCellDef="let receiveinfo"> {{receiveinfo[0].recdate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Status">
+          <th mat-header-cell *matHeaderCellDef> Status</th>
+          <td mat-cell *matCellDef="let receiveinfo"> {{receiveinfo[0].status}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let receiveinfo">
+            
+              <button mat-menu-item (click)="editReceiveproduct(receiveinfo)"><i class="fa fa-edit"></i> Edit</button>
+
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let issueproduct; columns: displayedColumns;">
+        </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

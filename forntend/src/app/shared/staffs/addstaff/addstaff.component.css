@@ -1,0 +1,25 @@
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .btn {
+    margin-right: 20px;
+}
+.btn-success{
+    width: 200px;
+}
+.btn-primary{
+    width: 150px;
+}
+mat-form-field {
+    margin-right: 20px;
+    width: 100%;
+}
+mat-expansion-panel{
+    background-color: rgb(240, 246, 250);
+}
+
+.example-radio-group{
+    display: flex;
+    flex-direction: row;
+  }

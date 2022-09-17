@@ -1,0 +1,54 @@
+<mat-expansion-panel [expanded]="branchsaleservice.panelOpenState">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h2 style="padding-top: 15px;">Add New Branchsale</h2>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Branch Sale ID</mat-label>
+                <input matInput placeholder="Branch Sale ID" type="text"
+                    [(ngModel)]="branchsaleservice.currentBranchsale.bsaleid" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="outline">
+            <mat-label>Branch Id</mat-label>
+            <mat-select [(ngModel)]="branchsaleservice.currentBranchsale.branchid">
+                <mat-option *ngFor="let branch of allbranch" [(value)]="branch.branchid">
+                    Id: {{branch.branchid}} Location: {{branch.blocation}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>Sale Date</mat-label>
+                        <input matInput [matDatepicker]="picker"
+                            [(ngModel)]="branchsaleservice.currentBranchsale.saledate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="outline">
+            <mat-label>Staff Id</mat-label>
+            <mat-select [(ngModel)]="branchsaleservice.currentBranchsale.staffid">
+                <mat-option *ngFor="let staff of allstaff" [(value)]="staff.staffid">
+                    Id: {{staff.staffid}} Name: {{staff.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </div>
+    </div>
+
+    <button class="btn btn-success" (click)="createOrUpdateBranchsale(branchsaleservice.currentBranchsale)"> <i
+            class="fa fa-save"></i>
+        Save</button>
+    <button class="btn btn-primary" (click)="clear();"> <i class="fa fa-retweet"></i> Clear</button>
+
+</mat-expansion-panel>

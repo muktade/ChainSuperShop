@@ -1,0 +1,59 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Branchinfo List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Write anything">
+      </mat-form-field>
+      <div>
+        <table mat-table [dataSource]="dataSource">
+          <!-- ID Column -->
+          <ng-container matColumnDef="Branch ID">
+            <th mat-header-cell *matHeaderCellDef> Branch ID </th>
+            <td mat-cell *matCellDef="let branch"> {{branch.branchid}} </td>
+          </ng-container>
+  
+          <!-- Name Column -->
+          <ng-container matColumnDef="Branch Location">
+            <th mat-header-cell *matHeaderCellDef> Branch Location </th>
+            <td mat-cell *matCellDef="let branch"> {{branch.blocation}} </td>
+          </ng-container>
+  
+          <!-- Description Column -->
+          <ng-container matColumnDef="Branch Contact">
+            <th mat-header-cell *matHeaderCellDef> Branch Contact </th>
+            <td mat-cell *matCellDef="let branch"> {{branch.bcontact}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Branch Email">
+            <th mat-header-cell *matHeaderCellDef> Branch Email </th>
+            <td mat-cell *matCellDef="let branch"> {{branch.bemail}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Branch Description">
+            <th mat-header-cell *matHeaderCellDef> Branch Description </th>
+            <td mat-cell *matCellDef="let branch"> {{branch.bdesc}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let branch">
+              <button mat-raised-button color="primary" (click)="editBranchinfo(branch)">
+                <i class="fa fa-edit"></i> Edit
+              </button>
+              <button mat-raised-button color="warn" (click)="deleteBranchinfo(branch.branchid)">
+                <i class="fa fa-trash"></i> Delete
+              </button>
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let cat; columns: displayedColumns;">
+          </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>

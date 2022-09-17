@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Create Purchase</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Purchase ID</mat-label>
+                    <input matInput placeholder="Purchase id" type="text"
+                        [(ngModel)]="purchaseService.currentPurchase.purid" disabled>
+                </mat-form-field>
+            </div>
+            <div class="col-md-8">
+                <mat-form-field>
+                    <mat-label>Purchase Date</mat-label>
+                            <input matInput [matDatepicker]="picker"
+                                [(ngModel)]="purchaseService.currentPurchase.purdate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email Id of Purchaser</mat-label>
+                    <input matInput placeholder="Write your email id" type="email"
+                        [(ngModel)]="purchaseService.currentPurchase.emailid">
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-card-content>
+    <button class="btn btn-success" (click)="createOrUpdatePurchase(purchaseService.currentPurchase)"> <i
+            class="fa fa-save"></i> Save</button>
+    <button class="btn btn-primary" (click)="clear()"><i class="fa fa-retweet"></i> Clear</button>
+</mat-card>

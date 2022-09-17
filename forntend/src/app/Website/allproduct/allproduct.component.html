@@ -1,0 +1,28 @@
+<section class="hero">
+    <div class="container">
+        <div class="clearfix">
+            <h1 align="center">Product Categories</h1>
+            <hr>
+            <div>
+                <div *ngFor="let pcat of allproduct; let i = index">
+                    <div class="col-lg-3" style="float: left; margin-bottom: 20px;">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <mat-card-title>{{pcat.pname}}</mat-card-title>
+                                <mat-card-subtitle>{{pcat.pdesc}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="assets/img/shop8.jpg"
+                                alt="Photo of a Shiba Inu">
+                            <mat-card-content>
+                                <p>
+                                    Some text goes here........ Some text goes here........ Some text goes here........ Some text goes here........
+                                    Some text goes here........ Some text goes here........
+                                </p>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

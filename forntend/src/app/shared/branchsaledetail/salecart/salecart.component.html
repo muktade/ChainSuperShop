@@ -1,0 +1,93 @@
+<div class="container-fluid" style="margin-top: 5px; margin-bottom: 15px; ">
+    <div class="row" style="background-color: skyblue; color: white;">
+        
+           <h2 style="margin: 0 auto;"> Sale Cart </h2>
+        
+    </div>
+    <div class="row">
+        <div class="col mt-2">
+            <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field>
+                    <mat-label>Branch ID</mat-label>
+                    <input matInput placeholder="Write Branch ID" [(ngModel)]="branchstockService.branchid"
+                    (focus)="getAllBranchstockDetails()">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-8">
+                    <mat-form-field>
+                        <mat-label>Branch Sale Id</mat-label>
+                        <mat-select [(ngModel)]="branchsaleservice.currentBranchsale.bsaleid">
+                            <mat-option *ngFor="let branchsale of allbranchsale" [(value)]="branchsale.bsaleid">
+                                Id: {{branchsale.bsaleid}} Branch ID: {{branchsale.branchid}} Sale Date:
+                                {{branchsale.saledate}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+              </div>
+            <table class="table table-bordered table-striped p-2">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th class="text-right">Subtotal</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="cart.lines.length == 0">
+                        <td colspan="6" class="text-center">
+                            Your cart is empty
+                        </td>
+                    </tr>
+                    <tr *ngFor="let line of cart.lines">
+                        <td>{{line.product.pid}}</td>
+                        <td>{{line.product.pname}}</td>
+                        <td>
+                            <input type="number" class="form-control-sm" style="width:8em" [value]="line.quantity"
+                                (change)="cart.updateQuantity(line.product, $event.target.value)" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control-sm" style="width:10em" [value]="line.unitprice"
+                                (change)="cart.updatePrice(line.product, $event.target.value)" />
+                        </td>
+                        
+                        <!-- <td class="text-right">
+                            {{line.unitprice | currency:"USD":true:"2.2-2"}}
+                        </td> -->
+                        <td class="text-right">
+                            {{(line.lineTotal) }}
+                        </td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-danger" (click)="cart.removeLine(line.product.id)">
+                                Remove
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="text-right">Total:</td>
+                        <td class="text-right">
+                            {{cart.cartPrice}}
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <button class="btn btn-success m-1" (click)="DynamicBrachsaledetails(cart)" >
+                    Confirm Sale
+                </button>
+                <button class="btn btn-primary m-1" (click)="clear()" >
+                    clear
+                </button>
+            </div>
+        </div>
+    </div>

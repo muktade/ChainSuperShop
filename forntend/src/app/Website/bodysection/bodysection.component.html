@@ -1,0 +1,98 @@
+<section class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>All Branches</span>
+                    </div>
+                    <ul *ngFor="let branch of allbranch">
+                        <li> {{branch.blocation}} Branch </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__item">
+
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="1"></li>
+                            <li data-target="#demo" data-slide-to="2"></li>
+                        </ul>
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="assets/img/shop2.jpg" width="1100" height="500">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1><font size="25px">Best Shop</font></h1>
+                                    <h1>This is the best shop in your country</h1>
+                                  </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/img/shop5.jpg" width="1100" height="500">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1><font size="25px">Best Foods</font></h1>
+                                    <h1>We Provide the best quality Foods.</h1>
+                                  </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/img/shop3.jpg" width="1100" height="500">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1><font size="25px">Best Place</font></h1>
+                                    <h1>The best place for shopping.</h1>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero">
+    <div class="container">
+        <div class="clearfix">
+            <h1 align="center">Product Categories</h1>
+            <hr>
+            <div>
+                <div *ngFor="let pcat of allprocat; let i = index">
+                    <div class="col-lg-3" style="float: left; margin-bottom: 20px;">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <mat-card-title>{{pcat.catname}}</mat-card-title>
+                                <mat-card-subtitle>{{pcat.catdesc}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="assets/img/shop7.jpg"
+                                alt="Photo of a Shiba Inu">
+                            <mat-card-content>
+                                <p>
+                                    Some text goes here........ Some text goes here........ Some text goes here........ Some text goes here........
+                                    Some text goes here........ Some text goes here........
+                                </p>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero">
+    <div class="container">
+        <hr>
+    </div>
+</section>

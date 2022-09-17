@@ -1,0 +1,90 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>StaffDetails List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Write anything">
+      </mat-form-field>
+      <div>
+        <table mat-table [dataSource]="dataSource">
+  
+          <ng-container matColumnDef="Staff ID">
+            <th mat-header-cell *matHeaderCellDef> Staff ID </th>
+            <td mat-cell *matCellDef="let staff"> {{staff.staffid}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Branch ID">
+            <th mat-header-cell *matHeaderCellDef> Branch ID </th>
+            <td mat-cell *matCellDef="let staff"> {{staff.branchid}}</td>
+          </ng-container>
+  
+  
+          <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let staff"> {{staff.name}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="DOB">
+            <th mat-header-cell *matHeaderCellDef> DOB </th>
+            <td mat-cell *matCellDef="let staff"> {{staff.dob}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Gender">
+            <th mat-header-cell *matHeaderCellDef> Gender </th>
+            <td mat-cell *matCellDef="let staff"> {{staff.gender}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Joining Date">
+            <th mat-header-cell *matHeaderCellDef> Joining Date </th>
+            <td mat-cell *matCellDef="let staff"> {{staff.jdate}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Designation">
+            <th mat-header-cell *matHeaderCellDef> Designation </th>
+            <td mat-cell *matCellDef="let staff"> {{staff.designation}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let staff"> {{staff.semail}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let staff"> {{staff.address}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Image">
+            <th mat-header-cell *matHeaderCellDef> Image </th>
+            <td mat-cell *matCellDef="let staff"> {{staff.staffimg}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let staff"> {{staff.status}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let staff">
+  
+  
+              <button mat-raised-button [matMenuTriggerFor]="menu" >Actions</button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editStaffdetail(staff)"><i class="fa fa-edit"></i> Edit</button>
+                <button mat-menu-item (click)="deleteStaffdetail(staff)"><i class="fa fa-trash"></i> Delete</button>
+              </mat-menu>
+  
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let cat; columns: displayedColumns;">
+          </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>

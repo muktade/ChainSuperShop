@@ -1,0 +1,66 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Products List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Write anything">
+      </mat-form-field>
+      <div>
+        <table mat-table [dataSource]="dataSource">
+  
+          <ng-container matColumnDef="Product ID">
+            <th mat-header-cell *matHeaderCellDef> Product ID </th>
+            <td mat-cell *matCellDef="let product"> {{product[0].pid}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Category Name">
+            <th mat-header-cell *matHeaderCellDef> Category Name </th>
+            <td mat-cell *matCellDef="let product"> {{product[1].catname}}</td>
+          </ng-container>
+  
+  
+          <ng-container matColumnDef="Product Name">
+            <th mat-header-cell *matHeaderCellDef> Product Name </th>
+            <td mat-cell *matCellDef="let product"> {{product[0].pname}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Product Description">
+            <th mat-header-cell *matHeaderCellDef> Product Description </th>
+            <td mat-cell *matCellDef="let product"> {{product[0].pdesc}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Manufacturer Name">
+            <th mat-header-cell *matHeaderCellDef> Manufacturer Name </th>
+            <td mat-cell *matCellDef="let product"> {{product[0].manufacturer}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Supplier Name">
+            <th mat-header-cell *matHeaderCellDef> Supplier Name </th>
+            <td mat-cell *matCellDef="let product"> {{product[0].supplier}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let product">
+                <button mat-raised-button color="primary" (click)="addproductpurchasecart(product[0])"><i class="fa fa-edit"></i> Add to Cart</button>
+  
+                
+              <!-- <button mat-raised-button [matMenuTriggerFor]="menu" >Actions</button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editProduct(product[0])"><i class="fa fa-edit"></i> Edit</button>
+              </mat-menu> -->
+  
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let cat; columns: displayedColumns;">
+          </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+

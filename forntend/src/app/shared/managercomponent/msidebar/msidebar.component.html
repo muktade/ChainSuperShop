@@ -1,0 +1,70 @@
+<mat-nav-list>
+    <!-- <div class="profile-card">
+        <div class="header">
+            <h2>Manager Sayem</h2>
+            <h4>sayem@gmail.com</h4>
+        </div>
+        <img src="assets/img/sam.jpg" alt="Sayem Sikder">
+    </div> -->
+    <!-- <mat-divider></mat-divider> -->
+    
+    <h2 matSubHeader class="hformat"><mat-icon>build</mat-icon>Tools</h2>
+
+
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>dns</mat-icon><b>All Branch Information</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/manager/branchinfo">Add a New Branch</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/manager/mbranchreceiveproduct">Received Products From Central</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/manager/mbranchreceiveproductdetail">Received Product Details</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/manager/mbranchstock">Branch Stock</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/manager/mbranchsale">Branch Sale</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/manager/mbranchsaledetail">Branch Sale Details</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/manager/mbranchexpense">Branch Expenses</a>
+  </mat-expansion-panel>
+
+
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>swap_horiz</mat-icon><b>Income And Expenses</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">All Income and Expenses</a>
+  </mat-expansion-panel>
+    
+    <br>
+    <h2 matSubHeader>Reports</h2>
+    
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">
+      <mat-divider></mat-divider>
+        <mat-icon>import_contacts</mat-icon>
+            Contacts
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">
+        <mat-icon>contact_phone</mat-icon>
+            Phone
+    </a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">All Sale</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">Monthly Sale</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">Monthly Expenses</a>
+</mat-nav-list>
+
+

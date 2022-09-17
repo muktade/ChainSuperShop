@@ -1,0 +1,16 @@
+.btn {
+    margin-right: 20px;
+}
+.btn-success{
+    width: 200px;
+}
+.btn-primary{
+    width: 140px;
+}
+mat-form-field {
+    margin-right: 20px;
+    width: 100%;
+}
+.mat-card {
+    margin-bottom: 5px;
+}
