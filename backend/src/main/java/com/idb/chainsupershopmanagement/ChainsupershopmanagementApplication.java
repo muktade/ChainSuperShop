@@ -1,5 +1,7 @@
 package com.idb.chainsupershopmanagement;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.jpa.HibernateEntityManagerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -33,6 +35,9 @@ public class ChainsupershopmanagementApplication {
 		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
 		return new CorsFilter(urlBasedCorsConfigurationSource);
 	}
+
+
+
 
 //	@Bean
 //	public CorsFilter corsFilter(){

@@ -22,7 +22,7 @@ import java.util.List;
 public class PcategoryRepository implements PcategoryService{
 
     @Autowired
-    SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
     
     @Override
     public List<Pcategory> viewAllPcategory() {
@@ -76,8 +76,10 @@ public class PcategoryRepository implements PcategoryService{
 
     @Override
     public List<Pcategory> viewAllPcategoryName() {
-        Session session = sessionFactory.getCurrentSession();
+        System.out.println("i am Session : ok");
 
+        Session session = sessionFactory.getCurrentSession();
+        System.out.println("i am Session :" +session);
         List<Pcategory> pcatlist = session.createQuery("select p from Pcategory p").list();
         
         return pcatlist;
