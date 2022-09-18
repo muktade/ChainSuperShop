@@ -54,7 +54,8 @@ public class PcategoryRepository implements PcategoryService{
     @Override
     public Pcategory insertCategory(Pcategory pcat) {
         Session session = sessionFactory.getCurrentSession();
-
+        System.out.println("hi im session57 :" +session);
+        System.out.println("name: " +pcat.getCatname() +" : " +pcat.getCatdesc());
         session.save(pcat);
         return pcat;
     }
