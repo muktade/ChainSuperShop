@@ -2,6 +2,8 @@ package com.idb.chainsupershopmanagement.model;
 // Generated Mar 1, 2020 11:45:56 PM by Hibernate Tools 4.3.1
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,9 +15,15 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Pcategory  implements java.io.Serializable {
 
 
+    @Autowired
      private Integer catid;
+
+    @Autowired
      private String catname;
+
+    @Autowired
      private String catdesc;
+
 
     public Pcategory() {
     }

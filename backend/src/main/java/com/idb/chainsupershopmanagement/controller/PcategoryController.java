@@ -28,6 +28,8 @@ public class PcategoryController {
     
     @GetMapping("/pcategory/catnamelist")
     public List<Pcategory> getAllPcategoryName(){
+
+        System.out.println("i am get product");
         return pcategoryService.viewAllPcategoryName();
     }
     
